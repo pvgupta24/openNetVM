@@ -164,11 +164,11 @@ init(int argc, char *argv[]) {
         argv += retval;
 
 #ifdef RTE_LIBRTE_PDUMP
-        rte_pdump_init(NULL);
+        rte_pdump_init();
 #endif
 
         /* get total number of ports */
-        total_ports = rte_eth_dev_count();
+        total_ports = rte_eth_dev_count_avail();
 
         /* set up array for NF tx data */
         mz_nf = rte_memzone_reserve(MZ_NF_INFO, sizeof(*nfs) * MAX_NFS,
